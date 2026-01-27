@@ -1,0 +1,5 @@
+#!/bin/bash
+
+set -o errexit
+
+git fetch && git merge --ff-only && git push
