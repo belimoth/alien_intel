@@ -1,4 +1,4 @@
-#include "game.h"
+#include "game.hpp"
 
 void game_stuff_init() {
 	game.data.stuff = {};
