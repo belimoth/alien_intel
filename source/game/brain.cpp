@@ -1,4 +1,4 @@
-#include "brain.hpp"
+#include "game/brain.hpp"
 
 void game_brain_init() {
 

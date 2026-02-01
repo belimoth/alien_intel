@@ -1,4 +1,4 @@
-#include "../game.hpp"
+#include "game.hpp"
 
 void game_actor_init() {
 	game.data.actor = {};
