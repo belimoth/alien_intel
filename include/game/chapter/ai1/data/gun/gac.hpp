@@ -4,7 +4,7 @@
 #include "game/chapter/ai1/data/model.hpp"
 #include "game/chapter/ai1/data/sfx.hpp"
 
-#include <stdint.h>
+#include "type.hpp"
 
 // gun animation cmd
 
@@ -137,9 +137,9 @@ ai1_gac gac_eagle_reload[] = {
 	end
 };
 
-ai1_gac gac_falcon2scope_reload[] = {
+ai1_gac gac_eaglescope_reload[] = {
 	copy( 1, gac_eagle_reload_dual )
-	copy( 0, gac_falcon2scope_reload )
+	copy( 0, gac_eaglescope_reload )
 	end
 };
 
@@ -737,7 +737,7 @@ ai1_gac gac_zrocket_reload[] = {
 	play( gfxa_gun_zrocket_reload, 0, 10000 )
 	sfxs( 52, 800 )
 	sfxp( 52, sfx_0053 )
-	sfxp( 79, sfx_eyespyhit )
+	sfxp( 79, sfx_espyhit )
 	sfxs( 126, 900 )
 	sfxp( 126, sfx_reload_04FB )
 	end

@@ -12,3 +12,27 @@
 #define align_16(val)  ((((val) + 0xf) | 0xf) ^ 0xf)
 #define align_64(val)  (((((uintptr_t)(val)) + 0x3f) | 0x3f) ^ 0x3f)
 #define array_count(a) (int)(sizeof(a) / sizeof(a[0]))
+
+// uint32_t align_4(uint32_t arg0) {
+// 	if (arg0 & 3) {
+// 		arg0 = (arg0 & 0xfffffffc) + 4;
+// 	}
+//
+// 	return arg0;
+// }
+
+// uint32_t align_16( uint32_t arg0 ) {
+// 	if (arg0 & 0xf) {
+// 		arg0 = (arg0 & 0xfffffff0) + 0x10;
+// 	}
+//
+// 	return arg0;
+// }
+
+uintptr_t align_32(uintptr_t arg0) {
+	if (arg0 & 0x1f) {
+		arg0 = (arg0 & ((intptr_t)~0x1f)) + 0x20;
+	}
+
+	return arg0;
+}

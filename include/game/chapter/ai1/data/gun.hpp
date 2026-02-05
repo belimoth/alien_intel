@@ -99,8 +99,8 @@ enum ai1_gun_i {
 	/*0x3d*/ gun_tap,
 	/*0x3e*/ gun_bug,
 	/*0x3f*/ gun_amp,
-	/*0x40*/ gun_DISGUISE40,
-	/*0x41*/ gun_DISGUISE41,
+	/*0x40*/ gun_disguise_0,
+	/*0x41*/ gun_disguise_1,
 
 	// /*0x42*/ gun_FLIGHTPLANS,
 	// /*0x43*/ gun_RESEARCHTAPE,
@@ -115,7 +115,7 @@ enum ai1_gun_i {
 	// /*0x4c*/ gun_KEYCARD4C,
 	// /*0x4d*/ gun_SUITCASE,
 	// /*0x4e*/ gun_BRIEFCASE,
-	// /*0x4f*/ gun_SHIELDTECHITEM,
+	// /*0x4f*/ gun_stechITEM,
 	// /*0x50*/ gun_NECKLACE,
 
 	/*0x51*/ gun_hammer,

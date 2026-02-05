@@ -2,13 +2,13 @@
 
 #include "gac.hpp"
 
-#include <stdint.h>
+#include "type.hpp"
 
 // gun ammo type
 
 #define gat_pistol   0x01
 #define gat_smg      0x02
-#define gat_crossbow 0x03
+#define gat_xbow 0x03
 #define gat_rifle    0x04
 #define gat_shotgun  0x05
 #define gat_zsniper  0x06
@@ -95,7 +95,7 @@ ai1_gai gai_ecm       = { gat_ecm,      gac_none,       1, gac_ecm_equip,       
 ai1_gai gai_grenade   = { gat_grenade,  gac_none,       1, gac_grenade_equip,      gaf_equippedisreserve | gaf_qtyaffectspartvis };
 ai1_gai gai_nbomb     = { gat_nbomb,    gac_none,       1, gac_grenade_equip,      gaf_equippedisreserve | gaf_qtyaffectspartvis };
 ai1_gai gai_zsniper   = { gat_zsniper,  gac_none,       8, gac_zsniper_reload,     0                                             };
-ai1_gai gai_xbow      = { gat_crossbow, gac_none,       5, gac_xbow_reload,        gaf_incrementalreload                         };
+ai1_gai gai_xbow      = { gat_xbow, gac_none,       5, gac_xbow_reload,        gaf_incrementalreload                         };
 ai1_gai gai_tranq     = { gat_tranq,    gac_none,       8, gac_tranq_reload,       0                                             };
 ai1_gai gai_psycho    = { gat_psycho,   gac_none,       8, gac_tranq_reload,       0                                             };
 ai1_gai gai_sniper    = { gat_rifle,    gac_rifle,      8, gac_sniper_reload,      0                                             };

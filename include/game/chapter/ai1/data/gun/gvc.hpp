@@ -2,7 +2,7 @@
 
 #include "../model.hpp"
 
-#include <stdint.h>
+#include "type.hpp"
 
 // model part vis
 
