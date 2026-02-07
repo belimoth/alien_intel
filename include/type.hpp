@@ -2,7 +2,7 @@
 
 #include <stdint.h>
 #include <stdbool.h>
-#include <math.h>
+#include <math.hpp>
 
 #define and &&
 #define or  ||

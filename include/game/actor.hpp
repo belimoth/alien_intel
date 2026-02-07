@@ -28,7 +28,7 @@ struct game_actor_data_head {
 	game_actor_nav nav;
 };
 
-#include "game/chapter/ai1/actor/data.hpp"
+#include "game/actor/data.hpp"
 
 // data
 // data.head
@@ -89,4 +89,4 @@ prop_t *actor_get_prop_target     ( actor_t &self );
 
 #define flag_set( data, flag, value ) if ( value ) { (data) &= ~(flag); } else { (data) |= (flag); }
 
-void actor_set_flag_2_perim_disabled( actor_t *self, bool enable );
+void actor_set_af2_perim( actor_t *self, bool enable );

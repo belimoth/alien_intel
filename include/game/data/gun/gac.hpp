@@ -1,14 +1,14 @@
 #pragma once
 
-#include "game/chapter/ai1/data/gfxa.hpp"
-#include "game/chapter/ai1/data/model.hpp"
-#include "game/chapter/ai1/data/sfx.hpp"
+#include "game/data/gfxa.hpp"
+#include "game/data/model.hpp"
+#include "game/data/sfx.hpp"
 
 #include "type.hpp"
 
 // gun animation cmd
 
-struct ai1_gac {
+struct gac_t {
 	uint8_t  type;
 	uint8_t  unk01;
 	uint16_t unk02;
@@ -43,54 +43,54 @@ struct ai1_gac {
 #define play( animation, direction, speed)         { 10, 0, animation, (direction << 16) | speed },
 #define sfxs( keyframe, speed)                     { 11, 0, keyframe, speed },
 
-ai1_gac gac_laser_equip[] = {
+gac_t gac_laser_equip[] = {
 	play( gfxa_gun_laser_equip, 0, 10000 )
 	end
 };
 
-ai1_gac gac_laser_unequip[] = {
+gac_t gac_laser_unequip[] = {
 	play( gfxa_gun_laser_unequip, 0, 10000 )
 	end
 };
 
 // punch
 
-ai1_gac gac_punch_type3[] = {
-	play( gfxa_gun_unarmed_leftpunch, 0, 10000 )
-	wait( 7, 2 )
-	end
-};
-
-ai1_gac gac_punch_type1[] = {
-	play( gfxa_gun_unarmed_rightpunch, 0, 10000 )
+gac_t gac_punch_0[] = {
+	play( gfxa_gun_unarmed_punch_right, 0, 10000 )
 	wait( 8, 2 )
 	end
 };
 
-ai1_gac gac_punch_type2[] = {
-	play( gfxa_gun_unarmed_rightpush, 0, 10000 )
+gac_t gac_punch_1[] = {
+	play( gfxa_gun_unarmed_push_right, 0, 10000 )
 	wait( 7, 2 )
 	end
 };
 
-ai1_gac gac_punch_type4[] = {
-	play( gfxa_gun_unarmed_doublepunch, 0, 10000 )
+gac_t gac_punch_2[] = {
+	play( gfxa_gun_unarmed_punch_left, 0, 10000 )
+	wait( 7, 2 )
+	end
+};
+
+gac_t gac_punch_3[] = {
+	play( gfxa_gun_unarmed_punch_double, 0, 10000 )
 	wait(  8, 2 )
 	wait( 18, 3 )
 	end
 };
 
-ai1_gac gac_punch[] = {
-	rand( 20, gac_punch_type1 )
-	rand( 40, gac_punch_type2 )
-	rand( 60, gac_punch_type3 )
-	copy(  0, gac_punch_type4 )
+gac_t gac_punch[] = {
+	rand( 20, gac_punch_0 )
+	rand( 40, gac_punch_1 )
+	rand( 60, gac_punch_2 )
+	copy(  0, gac_punch_3 )
 	end
 };
 
 // eagle
 
-ai1_gac gac_eagle_reload[] = {
+gac_t gac_eagle_reload[] = {
 	play( gfxa_gun_eagle_reload, 0, 10000 )
 	show( 1, part_hand_left )
 	show( 1, part_eagle_mag_1 )
@@ -98,14 +98,14 @@ ai1_gac gac_eagle_reload[] = {
 	sfxp( 10, sfx_01D8 )
 	hide( 19, part_eagle_mag_0 )
 	wait( 24, 1 )
-	sfxp( 24, sfx_80f6 )
+	sfxp( 24, sfx_80F6 )
 	hide( 24, part_eagle_mag_1 )
 	sfxp( 53, sfx_01DB )
 	wait( 53, 3 )
 	end
 };
 
-ai1_gac gac_eagle_h_reload[] = {
+gac_t gac_eagle_h_reload[] = {
 	play( gfxa_gun_eagle_reload_scope, 0, 10000 )
 	show( 1, part_hand_left )
 	show( 1, part_eagle_mag_1 )
@@ -113,53 +113,53 @@ ai1_gac gac_eagle_h_reload[] = {
 	sfxp( 10, sfx_01D8 )
 	hide( 19, part_eagle_mag_0 )
 	wait( 24, 1 )
-	sfxp( 24, sfx_80f6 )
+	sfxp( 24, sfx_80F6 )
 	hide( 24, part_eagle_mag_1 )
 	sfxp( 53, sfx_01DB )
 	wait( 53, 3 )
 	end
 };
 
-ai1_gac gac_eagle_reload_dual[] = {
+gac_t gac_eagle_reload_dual[] = {
 	play( gfxa_gun_eagle_reload_dual, 0, 10000 )
 	hide( 1, part_eagle_mag_1 )
 	show( 1, part_eagle_mag_0 )
 	sfxp( 6, sfx_01D8 )
 	wait( 50, 1 )
-	sfxp( 50, sfx_80f6 )
+	sfxp( 50, sfx_80F6 )
 	sfxp( 71, sfx_01DB )
 	end
 };
 
-ai1_gac gac_eagle_reload[] = {
+gac_t gac_eagle_reload[] = {
 	copy( 1, gac_eagle_reload_dual )
 	copy( 0, gac_eagle_reload )
 	end
 };
 
-ai1_gac gac_eaglescope_reload[] = {
+gac_t gac_eagle_h_reload[] = {
 	copy( 1, gac_eagle_reload_dual )
-	copy( 0, gac_eaglescope_reload )
+	copy( 0, gac_eagle_h_reload )
 	end
 };
 
-ai1_gac gac_eagle_whip[] = {
+gac_t gac_eagle_whip[] = {
 	play( gfxa_gun_eagle_whip, 0, 10000 )
 	wait( 23, 2 )
 	end
 };
 
-ai1_gac gac_eagle_equip[] = {
+gac_t gac_eagle_equip[] = {
 	play( gfxa_gun_eagle_equip, 0, 10000 )
 	end
 };
 
-ai1_gac gac_eagle_unequip[] = {
+gac_t gac_eagle_unequip[] = {
 	play( gfxa_gun_eagle_unequip, 0, 10000 )
 	end
 };
 
-ai1_gac gac_eagle_shoot[] = {
+gac_t gac_eagle_shoot[] = {
 	play( gfxa_gun_eagle_shoot, 0, 10000 )
 	wait( 9, 5 )
 	end
@@ -167,7 +167,7 @@ ai1_gac gac_eagle_shoot[] = {
 
 // auto9
 
-ai1_gac gac_auto9_reload[] = {
+gac_t gac_auto9_reload[] = {
 	play( gfxa_gun_auto9_reload, 0, 10000 )
 	show( 1, part_hand_left )
 	show( 1, part_pistol_mag_0 )
@@ -178,7 +178,7 @@ ai1_gac gac_auto9_reload[] = {
 	hide( 22, part_pistol_mag_1 )
 	show( 22, part_pistol_mag_0 )
 	sfxs( 27, 1300 )
-	sfxp( 27, sfx_80f6 )
+	sfxp( 27, sfx_80F6 )
 	wait( 30, 1 )
 	wait( 56, 3 )
 	sfxs( 58, 1300 )
@@ -186,27 +186,27 @@ ai1_gac gac_auto9_reload[] = {
 	end
 };
 
-ai1_gac gac_auto9_reload_dual[] = {
+gac_t gac_auto9_reload_dual[] = {
 	play( gfxa_gun_auto9_reload_dual, 0, 10000 )
 	show( 1, part_pistol_mag_0 )
 	sfxs( 5, 1300 )
 	sfxp( 5, sfx_01D8 )
 	hide( 25, part_pistol_mag_0 )
 	sfxs( 47, 1300 )
-	sfxp( 47, sfx_80f6 )
+	sfxp( 47, sfx_80F6 )
 	wait( 49, 1 )
 	sfxs( 69, 1300 )
 	sfxp( 69, sfx_01DB )
 	end
 };
 
-ai1_gac gac_auto9_reload[] = {
+gac_t gac_auto9_reload[] = {
 	copy( 1, gac_auto9_reload_dual )
 	copy( 0, gac_auto9_reload )
 	end
 };
 
-ai1_gac gac_auto9_shoot[] = {
+gac_t gac_auto9_shoot[] = {
 	play( gfxa_gun_auto9_shoot, 0, 10000 )
 	wait( 12, 5 )
 	end
@@ -214,14 +214,14 @@ ai1_gac gac_auto9_shoot[] = {
 
 // magnum
 
-ai1_gac gac_magnum_shoot[] = {
+gac_t gac_magnum_shoot[] = {
 	play( gfxa_gun_magnum_shoot, 0, 10000 )
 	wait( 12, 5 )
 	wait( 12, 2 )
 	end
 };
 
-ai1_gac gac_magnum_reload_solo[] = {
+gac_t gac_magnum_reload_solo[] = {
 	play( gfxa_gun_magnum_reload, 0, 10000 )
 	sfxp( 50, sfx_05CF )
 	sfxs( 80, 1830 )
@@ -252,7 +252,7 @@ ai1_gac gac_magnum_reload_solo[] = {
 	end
 };
 
-ai1_gac gac_magnum_reload_dual[] = {
+gac_t gac_magnum_reload_dual[] = {
 	play( gfxa_gun_magnum_reload_dual, 0, 10000 )
 	sfxp( 50, sfx_05CF )
 	sfxs( 80, 1830 )
@@ -270,13 +270,13 @@ ai1_gac gac_magnum_reload_dual[] = {
 	end
 };
 
-ai1_gac gac_magnum_reload[] = {
+gac_t gac_magnum_reload[] = {
 	copy( 1, gac_magnum_reload_dual )
 	copy( 0, gac_magnum_reload_solo )
 	end
 };
 
-ai1_gac gac_magnum_whip[] = {
+gac_t gac_magnum_whip[] = {
 	play( gfxa_gun_magnum_whip, 0, 10000 )
 	wait( 23, 2 )
 	end
@@ -284,7 +284,7 @@ ai1_gac gac_magnum_whip[] = {
 
 // zpistol
 
-ai1_gac gac_zpistol_reload_solo[] = {
+gac_t gac_zpistol_reload_solo[] = {
 	play( gfxa_gun_zpistol_reload, 0, 10000 )
 	show( 1, part_hand_left )
 	show( 1, part_zpistol_orb )
@@ -294,7 +294,7 @@ ai1_gac gac_zpistol_reload_solo[] = {
 	end
 };
 
-ai1_gac gac_zpistol_reload_dual[] = {
+gac_t gac_zpistol_reload_dual[] = {
 	play( gfxa_gun_zpistol_reload_dual, 0, 10000 )
 	show( 1, part_hand_left )
 	show( 1, part_zpistol_orb )
@@ -304,13 +304,13 @@ ai1_gac gac_zpistol_reload_dual[] = {
 	end
 };
 
-ai1_gac gac_zpistol_equip[] = {
+gac_t gac_zpistol_equip[] = {
 	copy( 1, gac_zpistol_reload_dual )
 	copy( 0, gac_zpistol_reload_solo )
 	end
 };
 
-ai1_gac gac_zpistol_shoot[] = {
+gac_t gac_zpistol_shoot[] = {
 	play( gfxa_gun_zpistol_shoot, 0, 10000 )
 	wait( 9, 5 )
 	end
@@ -318,13 +318,13 @@ ai1_gac gac_zpistol_shoot[] = {
 
 // zblaster
 
-ai1_gac gac_zblaster_shoot[] = {
+gac_t gac_zblaster_shoot[] = {
 	play( gfxa_gun_zblaster_shoot, 0, 10000 )
 	wait( 9, 5 )
 	end
 };
 
-ai1_gac gac_zblaster_reload_solo[] = {
+gac_t gac_zblaster_reload_solo[] = {
 	play( gfxa_gun_zblaster_reload, 0, 10000 )
 	show( 0, part_hand_left )
 	sfxs( 4, 1200 )
@@ -344,7 +344,7 @@ ai1_gac gac_zblaster_reload_solo[] = {
 	end
 };
 
-ai1_gac gac_zblaster_reload_dual[] = {
+gac_t gac_zblaster_reload_dual[] = {
 	play( gfxa_gun_zblaster_reload_dual, 0, 10000 )
 	sfxs( 14, 1200 )
 	sfxp( 14, sfx_0053 )
@@ -358,20 +358,20 @@ ai1_gac gac_zblaster_reload_dual[] = {
 	end
 };
 
-ai1_gac gac_zblaster_reload[] = {
+gac_t gac_zblaster_reload[] = {
 	copy( 1, gac_zblaster_reload_dual )
 	copy( 0, gac_zblaster_reload_solo )
 	end
 };
 
-ai1_gac gac_unused_8007c0bc[] = {
-	play( gfxa_03f6, 0, 10000 )
+gac_t gac_unused_8007c0bc[] = {
+	play( gfxa_03F6, 0, 10000 )
 	end
 };
 
 // tmp
 
-ai1_gac gac_tmp_reload[] = {
+gac_t gac_tmp_reload[] = {
 	play( gfxa_gun_tmp_reload, 0, 10000 )
 	hide( 23, part_tmp_mag_0 )
 	show( 33, part_hand_left )
@@ -379,7 +379,7 @@ ai1_gac gac_tmp_reload[] = {
 	sfxs( 9, 950 )
 	sfxp( 9, sfx_01D8 )
 	sfxs( 44, 950 )
-	sfxp( 44, sfx_80f6 )
+	sfxp( 44, sfx_80F6 )
 	hide( 45, part_tmp_mag_1 )
 	show( 45, part_tmp_mag_0 )
 	wait( 45, 1 )
@@ -387,7 +387,7 @@ ai1_gac gac_tmp_reload[] = {
 	end
 };
 
-ai1_gac gac_tmp_reload_dual[] = {
+gac_t gac_tmp_reload_dual[] = {
 	play( gfxa_gun_tmp_reload_dual, 0, 10000 )
 	hide( 23, part_tmp_mag_0 )
 	show( 33, part_hand_left )
@@ -395,7 +395,7 @@ ai1_gac gac_tmp_reload_dual[] = {
 	sfxs( 20, 950 )
 	sfxp( 20, sfx_01D8 )
 	sfxs( 61, 950 )
-	sfxp( 61, sfx_80f6 )
+	sfxp( 61, sfx_80F6 )
 	hide( 61, part_tmp_mag_1 )
 	show( 61, part_tmp_mag_0 )
 	wait( 61, 1 )
@@ -403,13 +403,13 @@ ai1_gac gac_tmp_reload_dual[] = {
 	end
 };
 
-ai1_gac gac_tmp_reload[] = {
+gac_t gac_tmp_reload[] = {
 	copy( 1, gac_tmp_reload_dual )
 	copy( 0, gac_tmp_reload )
 	end
 };
 
-ai1_gac gac_tmp_shoot[] = {
+gac_t gac_tmp_shoot[] = {
 	play( gfxa_gun_tmp_shoot, 0, 10000 )
 	wait( 14, 5 )
 	hold( 14 )
@@ -418,7 +418,7 @@ ai1_gac gac_tmp_shoot[] = {
 
 // xsmg
 
-ai1_gac gac_xsmg_reload[] = {
+gac_t gac_xsmg_reload[] = {
 	play( gfxa_gun_xsmg_reload, 0, 10000 )
 	show( 1, part_hand_left )
 	show( 1, part_xsmg_magazine )
@@ -426,19 +426,19 @@ ai1_gac gac_xsmg_reload[] = {
 	end
 };
 
-ai1_gac gac_xsmg_reload_dual[] = {
+gac_t gac_xsmg_reload_dual[] = {
 	play( gfxa_gun_xsmg_reload_dual, 0, 10000 )
 	sfxp( 60, sfx_05D3 )
 	end
 };
 
-ai1_gac gac_xsmg_equip[] = {
+gac_t gac_xsmg_equip[] = {
 	copy( 1, gac_xsmg_reload_dual )
 	copy( 0, gac_xsmg_reload )
 	end
 };
 
-ai1_gac gac_xsmg_shoot[] = {
+gac_t gac_xsmg_shoot[] = {
 	play( gfxa_gun_xsmg_shoot, 0, 10000 )
 	wait( 5, 5 )
 	hold( 5 )
@@ -448,7 +448,7 @@ ai1_gac gac_xsmg_shoot[] = {
 // xp90
 
 
-ai1_gac gac_xp90_reload[] = {
+gac_t gac_xp90_reload[] = {
 	play( gfxa_gun_xp90_reload, 0, 10000 )
 	sfxs( 18, 1100 )
 	sfxp( 18, sfx_0053 )
@@ -461,7 +461,7 @@ ai1_gac gac_xp90_reload[] = {
 	end
 };
 
-ai1_gac gac_xp90_shoot[] = {
+gac_t gac_xp90_shoot[] = {
 	play( gfxa_gun_xp90_shoot, 0, 10000 )
 	wait( 10, 5 )
 	hold( 10 )
@@ -470,7 +470,7 @@ ai1_gac gac_xp90_shoot[] = {
 
 // zsmg
 
-ai1_gac gac_zsmg_reload[] = {
+gac_t gac_zsmg_reload[] = {
 	play( gfxa_gun_zsmg_reload, 0, 10000 )
 	show( 30, part_zsmg_orb )
 	sfxs( 58, 933 )
@@ -479,7 +479,7 @@ ai1_gac gac_zsmg_reload[] = {
 	end
 };
 
-ai1_gac gac_zsmg_shoot[] = {
+gac_t gac_zsmg_shoot[] = {
 	play( gfxa_gun_zsmg_shoot, 0, 10000 )
 	wait( 8, 5 )
 	hold( 8 )
@@ -488,12 +488,12 @@ ai1_gac gac_zsmg_shoot[] = {
 
 // g36
 
-ai1_gac gac_g36_shoot[] = {
+gac_t gac_g36_shoot[] = {
 	play( gfxa_gun_g36_shoot, 0, 10000 )
 	end
 };
 
-ai1_gac gac_g36_reload[] = {
+gac_t gac_g36_reload[] = {
 	play( gfxa_gun_g36_reload, 0, 10000 )
 	sfxp( 8, sfx_0053 )
 	hide( 17, part_g36_mag_1 )
@@ -507,7 +507,7 @@ ai1_gac gac_g36_reload[] = {
 
 // xg36
 
-ai1_gac gac_xg36_reload[] = {
+gac_t gac_xg36_reload[] = {
 	play( gfxa_gun_xg36_reload_0, 0, 10000 )
 	sfxp( 8, sfx_0053 )
 	hide( 16, part_xg36_mag_2 )
@@ -519,7 +519,7 @@ ai1_gac gac_xg36_reload[] = {
 	end
 };
 
-ai1_gac gac_xg36_grenadereload[] = {
+gac_t gac_xg36_grenadereload[] = {
 	play( gfxa_gun_xg36_reload_1, 0, 10000 )
 	sfxs( 6, 700 )
 	sfxp( 6, sfx_0053 )
@@ -533,29 +533,29 @@ ai1_gac gac_xg36_grenadereload[] = {
 	end
 };
 
-ai1_gac gac_xg36_shoot[] = {
+gac_t gac_xg36_shoot[] = {
 	play( gfxa_gun_xg36_shoot_0, 0, 10000 )
 	end
 };
 
-ai1_gac gac_xg36_thump[] = {
+gac_t gac_xg36_thump[] = {
 	play( gfxa_gun_xg36_shoot_1, 0, 10000 )
 	end
 };
 
-ai1_gac gac_xg36_0to1[] = {
+gac_t gac_xg36_0to1[] = {
 	play( gfxa_gun_xg36_change, 0, 10000 )
 	end
 };
 
-ai1_gac gac_xg36_1to0[] = {
+gac_t gac_xg36_1to0[] = {
 	play( gfxa_gun_xg36_change, 65535, 55536 )
 	end
 };
 
 // famas
 
-ai1_gac gac_famas_reload[] = {
+gac_t gac_famas_reload[] = {
 	play( gfxa_gun_famas_reload, 0, 10000 )
 	sfxs( 16, 900 )
 	sfxp( 16, sfx_0053 )
@@ -573,7 +573,7 @@ ai1_gac gac_famas_reload[] = {
 
 // mp7
 
-ai1_gac gac_mp7_reload[] = {
+gac_t gac_mp7_reload[] = {
 	play( gfxa_gun_mp7_reload, 0, 10000 )
 	sfxs( 15, 1200 )
 	sfxp( 15, sfx_0053 )
@@ -588,19 +588,19 @@ ai1_gac gac_mp7_reload[] = {
 	end
 };
 
-ai1_gac gac_mp7_equip[] = {
+gac_t gac_mp7_equip[] = {
 	play( gfxa_gun_mp7_equip, 0, 10000 )
 	end
 };
 
-ai1_gac gac_mp7_unequip[] = {
+gac_t gac_mp7_unequip[] = {
 	play( gfxa_gun_mp7_unequip, 0, 10000 )
 	end
 };
 
 // laptop
 
-ai1_gac gac_laptop_reload[] = {
+gac_t gac_laptop_reload[] = {
 	play( gfxa_gun_laptop_reload, 0, 10000 )
 	sfxs( 4, 1630 )
 	sfxp( 4, sfx_reload_04FB )
@@ -621,14 +621,14 @@ ai1_gac gac_laptop_reload[] = {
 	end
 };
 
-ai1_gac gac_laptop_shoot[] = {
+gac_t gac_laptop_shoot[] = {
 	play( gfxa_gun_laptop_shoot, 0, 10000 )
 	wait( 10, 5 )
 	hold( 10 )
 	end
 };
 
-ai1_gac gac_laptop_equip[] = {
+gac_t gac_laptop_equip[] = {
 	play( gfxa_gun_laptop_equip, 0, 10000 )
 	sfxs( 15, 720 )
 	sfxp( 15, sfx_04F7 )
@@ -637,7 +637,7 @@ ai1_gac gac_laptop_equip[] = {
 	end
 };
 
-ai1_gac gac_laptop_unequip[] = {
+gac_t gac_laptop_unequip[] = {
 	play( gfxa_gun_laptop_unequip, 0, 10000 )
 	sfxp( 1, sfx_04F7 )
 	sfxs( 25, 720 )
@@ -648,7 +648,7 @@ ai1_gac gac_laptop_unequip[] = {
 
 // shotgun
 
-ai1_gac gac_shotgun_reload[] = {
+gac_t gac_shotgun_reload[] = {
 	play( gfxa_gun_shotgun_reload, 0, 10000 )
 	show( 1, part_shotgun_cart )
 	sfxp( 67, sfx_01D8 )
@@ -659,14 +659,14 @@ ai1_gac gac_shotgun_reload[] = {
 	end
 };
 
-ai1_gac gac_shotgun_shoot[] = {
+gac_t gac_shotgun_shoot[] = {
 	play( gfxa_gun_shotgun_shoot_single, 0, 10000 )
 	wait( 9, 2 )
 	sfxp( 34, sfx_reload_04FB )
 	end
 };
 
-ai1_gac gac_shotgun_burst[] = {
+gac_t gac_shotgun_burst[] = {
 	play( gfxa_gun_shotgun_shoot_double, 0, 10000 )
 	wait( 9, 2 )
 	sfxp( 54, sfx_reload_04FB )
@@ -675,13 +675,13 @@ ai1_gac gac_shotgun_burst[] = {
 
 // zlmg
 
-ai1_gac gac_zlmg_shoot[] = {
+gac_t gac_zlmg_shoot[] = {
 	play( gfxa_gun_zlmg_shoot, 0, 10000 )
 	wait( 12, 5 )
 	end
 };
 
-ai1_gac gac_zlmg_reload[] = {
+gac_t gac_zlmg_reload[] = {
 	play( gfxa_gun_zlmg_reload, 0, 10000 )
 	sfxp( 49, sfx_05C7 )
 	hide( 70, part_zlmg_mag_0 )
@@ -693,19 +693,19 @@ ai1_gac gac_zlmg_reload[] = {
 	end
 };
 
-ai1_gac gac_zlmg_equip[] = {
+gac_t gac_zlmg_equip[] = {
 	play( gfxa_gun_zlmg_equip, 0, 10000 )
 	end
 };
 
-ai1_gac gac_zlmg_unequip[] = {
+gac_t gac_zlmg_unequip[] = {
 	play( gfxa_gun_zlmg_unequip, 0, 10000 )
 	end
 };
 
 // rocket
 
-ai1_gac gac_rocket_reload[] = {
+gac_t gac_rocket_reload[] = {
 	play( gfxa_gun_rocket_reload, 0, 10000 )
 	sfxs( 16, 900 )
 	sfxp( 16, sfx_04F9 )
@@ -721,19 +721,19 @@ ai1_gac gac_rocket_reload[] = {
 	end
 };
 
-ai1_gac gac_rocket_shoot[] = {
+gac_t gac_rocket_shoot[] = {
 	play( gfxa_gun_rocket_shoot, 0, 10000 )
 	end
 };
 
 // zrocket
 
-ai1_gac gac_zrocket_shoot[] = {
+gac_t gac_zrocket_shoot[] = {
 	play( gfxa_gun_zrocket_shoot, 0, 10000 )
 	end
 };
 
-ai1_gac gac_zrocket_reload[] = {
+gac_t gac_zrocket_reload[] = {
 	play( gfxa_gun_zrocket_reload, 0, 10000 )
 	sfxs( 52, 800 )
 	sfxp( 52, sfx_0053 )
@@ -745,12 +745,12 @@ ai1_gac gac_zrocket_reload[] = {
 
 // thumper
 
-ai1_gac gac_thumper_shoot[] = {
+gac_t gac_thumper_shoot[] = {
 	play( gfxa_gun_thumper_shoot, 0, 10000 )
 	end
 };
 
-ai1_gac gac_thumper_reload[] = {
+gac_t gac_thumper_reload[] = {
 	play( gfxa_gun_thumper_reload, 0, 10000 )
 	sfxs( 15, 600 )
 	sfxp( 15, sfx_0053 )
@@ -767,17 +767,17 @@ ai1_gac gac_thumper_reload[] = {
 
 // mine
 
-ai1_gac gac_mine_equip[] = {
+gac_t gac_mine_equip[] = {
 	play( gfxa_gun_mine_equip, 0, 10000 )
 	end
 };
 
-ai1_gac gac_mine_unequip[] = {
+gac_t gac_mine_unequip[] = {
 	play( gfxa_gun_mine_unequip, 0, 10000 )
 	end
 };
 
-ai1_gac gac_mine_throw[] = {
+gac_t gac_mine_throw[] = {
 	play( gfxa_gun_mine_throw, 0, 10000 )
 	hold( 10 )
 	wait( 13, 2 )
@@ -786,17 +786,17 @@ ai1_gac gac_mine_throw[] = {
 
 // rmine
 
-ai1_gac gac_rmine_equip[] = {
+gac_t gac_rmine_equip[] = {
 	play( gfxa_gun_rmine_equip, 0, 10000 )
 	end
 };
 
-ai1_gac gac_rmine_unequip[] = {
+gac_t gac_rmine_unequip[] = {
 	play( gfxa_gun_rmine_unequip, 0, 10000 )
 	end
 };
 
-ai1_gac gac_rmine_throw[] = {
+gac_t gac_rmine_throw[] = {
 	play( gfxa_gun_rmine_throw, 0, 10000 )
 	hold( 10 )
 	wait( 11, 2 )
@@ -805,17 +805,17 @@ ai1_gac gac_rmine_throw[] = {
 
 // ecm
 
-ai1_gac gac_ecm_equip[] = {
+gac_t gac_ecm_equip[] = {
 	play( gfxa_gun_ecm_equip, 0, 10000 )
 	end
 };
 
-ai1_gac gac_ecm_unequip[] = {
+gac_t gac_ecm_unequip[] = {
 	play( gfxa_gun_ecm_unequip, 0, 10000 )
 	end
 };
 
-ai1_gac gac_ecm_throw[] = {
+gac_t gac_ecm_throw[] = {
 	play( gfxa_gun_ecm_unequip, 0, 10000 )
 	wait( 23, 2 )
 	end
@@ -823,7 +823,7 @@ ai1_gac gac_ecm_throw[] = {
 
 // grenade
 
-ai1_gac gac_grenade_throw[] = {
+gac_t gac_grenade_throw[] = {
 	play( gfxa_gun_grenade_throw, 0, 10000 )
 	drop( 6 )
 	sfxp( 6, sfx_05C1 )
@@ -832,14 +832,14 @@ ai1_gac gac_grenade_throw[] = {
 	end
 };
 
-ai1_gac gac_grenade_equip[] = {
+gac_t gac_grenade_equip[] = {
 	play( gfxa_gun_grenade_equip, 0, 10000 )
 	end
 };
 
 // zsniper
 
-ai1_gac gac_zsniper_reload[] = {
+gac_t gac_zsniper_reload[] = {
 	play( gfxa_gun_zsniper_reload, 0, 10000 )
 	show( 1, part_zsniper_orb )
 	sfxp( 72, sfx_zsniper_reload )
@@ -848,14 +848,14 @@ ai1_gac gac_zsniper_reload[] = {
 	end
 };
 
-ai1_gac gac_zsniper_shoot[] = {
+gac_t gac_zsniper_shoot[] = {
 	play( gfxa_gun_zsniper_shoot, 0, 10000 )
 	end
 };
 
 // xbow
 
-ai1_gac gac_xbow_reload[] = {
+gac_t gac_xbow_reload[] = {
 	play( gfxa_gun_xbow_reload, 0, 10000 )
 	hide( 1, part_xbow_0028 )
 	show( 1, part_xbow_bolt )
@@ -870,21 +870,21 @@ ai1_gac gac_xbow_reload[] = {
 	end
 };
 
-ai1_gac gac_xbow_shoot[] = {
+gac_t gac_xbow_shoot[] = {
 	play( gfxa_gun_xbow_shoot, 0, 10000 )
 	hide( 20, part_xbow_0028 )
 	sfxp( 37, sfx_04F8 )
 	end
 };
 
-ai1_gac gac_xbow_unequip[] = {
+gac_t gac_xbow_unequip[] = {
 	play( gfxa_gun_xbow_unequip, 0, 10000 )
 	hide( 1, part_xbow_0028 )
 	sfxp( 37, sfx_04F8 )
 	end
 };
 
-ai1_gac gac_xbow_equip[] = {
+gac_t gac_xbow_equip[] = {
 	play( gfxa_gun_xbow_equip, 0, 10000 )
 	sfxp( 32, sfx_04FC )
 	sfxp( 75, sfx_04F8 )
@@ -893,19 +893,19 @@ ai1_gac gac_xbow_equip[] = {
 
 // tranq
 
-ai1_gac gac_tranq_inject[] = {
+gac_t gac_tranq_inject[] = {
 	play( gfxa_gun_tranq_inject, 0, 10000 )
 	wait( 18, 2 )
 	end
 };
 
-ai1_gac gac_tranq_shoot[] = {
+gac_t gac_tranq_shoot[] = {
 	play( gfxa_gun_tranq_shoot, 0, 10000 )
 	wait( 7, 5 )
 	end
 };
 
-ai1_gac gac_tranq_reload[] = {
+gac_t gac_tranq_reload[] = {
 	play( gfxa_gun_tranq_reload, 0, 10000 )
 	show( 1, part_hand_left )
 	show( 1, part_tranq_mag_0 )
@@ -928,19 +928,19 @@ ai1_gac gac_tranq_reload[] = {
 
 // sniper
 
-ai1_gac gac_sniper_equip[] = {
+gac_t gac_sniper_equip[] = {
 	play( gfxa_gun_sniper_equip, 0, 10000 )
 	end
 };
 
-ai1_gac gac_sniper_reload[] = {
+gac_t gac_sniper_reload[] = {
 	play( gfxa_gun_sniper_reload, 0, 10000 )
 	sfxs( 22, 850 )
 	sfxp( 22, sfx_01D8 )
 	show( 42, part_sniper_mag_1 )
 	hide( 42, part_sniper_mag_0 )
 	sfxs( 72, 850 )
-	sfxp( 72, sfx_80f6 )
+	sfxp( 72, sfx_80F6 )
 	hide( 72, part_sniper_mag_1 )
 	show( 72, part_sniper_mag_0 )
 	wait( 72, 1 )
@@ -949,7 +949,7 @@ ai1_gac gac_sniper_reload[] = {
 
 // ppk
 
-ai1_gac gac_ppk_shoot[] = {
+gac_t gac_ppk_shoot[] = {
 	play( gfxa_gun_ppk_shoot, 0, 10000 )
 	wait( 10, 5 )
 	end
@@ -957,7 +957,7 @@ ai1_gac gac_ppk_shoot[] = {
 
 // tt33
 
-ai1_gac gac_tt33_shoot[] = {
+gac_t gac_tt33_shoot[] = {
 	play( gfxa_gun_tt33_shoot, 0, 10000 )
 	wait( 10, 5 )
 	end
@@ -965,52 +965,52 @@ ai1_gac gac_tt33_shoot[] = {
 
 // knife
 
-ai1_gac gac_knife_equip[] = {
+gac_t gac_knife_equip[] = {
 	play( gfxa_gun_knife_equip, 0, 10000 )
 	wait( 24, 2 )
 	end
 };
 
-ai1_gac gac_knife_slash2[] = {
+gac_t gac_knife_slash2[] = {
 	play( gfxa_gun_knife_slash, 0, 10000 )
 	wait( 24, 2 )
 	end
 };
 
-ai1_gac gac_knife_slash[] = {
+gac_t gac_knife_slash[] = {
 	rand( 50, gac_knife_slash2 )
-	copy( 0, gac_knife_equip )
+	copy(  0, gac_knife_equip )
 	end
 };
 
-ai1_gac gac_knife_0to1[] = {
+gac_t gac_knife_0to1[] = {
 	play( gfxa_gun_knife_change, 0, 10000 )
-	sfxp( 30, sfx_80a7 )
-	sfxp( 40, sfx_80a6 )
+	sfxp( 30, sfx_80A7 )
+	sfxp( 40, sfx_80A6 )
 	end
 };
 
-ai1_gac gac_knife_1to0[] = {
+gac_t gac_knife_1to0[] = {
 	play( gfxa_gun_knife_change, 65535, 55536 )
-	sfxp( 10, sfx_80a8 )
-	sfxp( 20, sfx_80a6 )
+	sfxp( 10, sfx_80A8 )
+	sfxp( 20, sfx_80A6 )
 	end
 };
 
-ai1_gac gac_knife_throw[] = {
+gac_t gac_knife_throw[] = {
 	play( gfxa_gun_knife_throw, 0, 10000 )
 	hold( 12 )
 	wait( 16, 2 )
 	end
 };
 
-ai1_gac gac_unused_8007f05c[] = {
-	play( gfxa_041c, 0, 10000 )
+gac_t gac_unused_8007f05c[] = {
+	play( gfxa_041C, 0, 10000 )
 	wait( 22, 1 )
 	end
 };
 
-ai1_gac gac_knife_reload[] = {
+gac_t gac_knife_reload[] = {
 	copy( 2, gac_knife_1to0 )
 	copy( 0, gac_knife_0to1 )
 	end
@@ -1018,24 +1018,24 @@ ai1_gac gac_knife_reload[] = {
 
 // uplink
 
-ai1_gac gac_uplink_equip[] = {
+gac_t gac_uplink_equip[] = {
 	play( gfxa_gun_uplink_equip, 0, 10000 )
 	end
 };
 
-ai1_gac gac_uplink_unequip[] = {
+gac_t gac_uplink_unequip[] = {
 	play( gfxa_gun_uplink_unequip, 0, 10000 )
 	end
 };
 
-ai1_gac gac_unused_8007f794[] = {
-	play( gfxa_043b, 0, 10000 )
+gac_t gac_unused_8007f794[] = {
+	play( gfxa_043B, 0, 10000 )
 	end
 };
 
 // tester
 
-ai1_gac gac_tester_shoot[] = {
+gac_t gac_tester_shoot[] = {
 	play( gfxa_gun_tester_shoot, 0, 10000 )
 	end
 };

@@ -1,0 +1,34 @@
+// gun ammo type
+
+#define gat_pistol   0x01
+#define gat_smg      0x02
+#define gat_xbow 0x03
+#define gat_rifle    0x04
+#define gat_shotgun  0x05
+#define gat_zsniper  0x06
+#define gat_grenade  0x07
+#define gat_rocket   0x08
+#define gat_knife    0x09
+#define gat_magnum   0x0a
+#define gat_thump    0x0b
+#define gat_rmine    0x0c
+#define gat_pmine    0x0d
+#define gat_fmine    0x0e
+#define gat_zlmg     0x0f
+#define gat_zrocket  0x10
+#define gat_dart     0x11
+#define gat_nbomb    0x12
+#define gat_tranq    0x13
+#define gat_cloak    0x14
+#define gat_boost    0x15
+#define gat_psycho   0x16
+#define gat_17       0x17
+#define gat_bug      0x18
+#define gat_cam      0x19
+#define gat_semtex   0x1a
+#define gat_1b       0x1b
+#define gat_1c       0x1c
+#define gat_1d       0x1d
+#define gat_token    0x1e
+#define gat_1f       0x1f
+#define gat_ecm      0x20

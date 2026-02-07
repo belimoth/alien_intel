@@ -22,23 +22,23 @@ enum game_chapter {
 	game_chapter_scx, // Swat City X (SCX)
 };
 
-#include "chapter/d0p.hpp"
-#include "chapter/d1h.hpp"
-#include "chapter/d2c.hpp"
-#include "chapter/d3f.hpp"
-#include "chapter/d4w.hpp"
-#include "chapter/d5t.hpp"
-#include "chapter/d6d.hpp"
+#include "chapter/other/d0p.hpp"
+#include "chapter/other/d1h.hpp"
+#include "chapter/other/d2c.hpp"
+#include "chapter/other/d3f.hpp"
+#include "chapter/other/d4w.hpp"
+#include "chapter/other/d5t.hpp"
+#include "chapter/other/d6d.hpp"
 
 #include "chapter/ai1.hpp"
-#include "chapter/aix.hpp"
-#include "chapter/bf1.hpp"
-#include "chapter/dp1.hpp"
-#include "chapter/hw1.hpp"
-#include "chapter/hc1.hpp"
-#include "chapter/rc1.hpp"
-#include "chapter/sc1.hpp"
-#include "chapter/scx.hpp"
+#include "chapter/other/aix.hpp"
+#include "chapter/other/bf1.hpp"
+#include "chapter/other/dp1.hpp"
+#include "chapter/other/hw1.hpp"
+#include "chapter/other/hc1.hpp"
+#include "chapter/other/rc1.hpp"
+#include "chapter/other/sc1.hpp"
+#include "chapter/other/scx.hpp"
 
 void game_chapter_init() {
 	switch ( game.chapter ) {

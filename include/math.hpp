@@ -1,5 +1,7 @@
 #pragma once
 
+#include <math.h>
+
 #define s32_max        2147483647
 #define u32_max        4294967295
 #define float_min      ((float)-3.40282346638528860e+38)
