@@ -73,7 +73,7 @@ struct actor_t {
 	};
 };
 
-enum ai1_race {
+enum race_t {
 	race_human  = 0,
 	race_skedar = 1,
 	race_thatch = 2,

@@ -1,6 +1,6 @@
 #pragma once
 
-enum ai1_gun_name {
+enum gun_name {
 	gun_name_000 = 0x4c00,
 	gun_name_001,
 	gun_name_002,

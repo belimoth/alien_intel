@@ -50,8 +50,8 @@ struct item_t {
 	/*0x30*/ float posy;
 	/*0x34*/ float posz;
 	/*0x38*/ float sway;
-	/*0x3c*/ ai1_gvc *gunviscmds;
-	/*0x40*/ ai1_mpv *partvisibility;
+	/*0x3c*/ gvc_t *gunviscmds;
+	/*0x40*/ mpv_t *partvisibility;
 
 	// removed
 	// /*0x44*/ uint16_t shortname;
@@ -79,8 +79,8 @@ struct item_t {
 #define wfx_pistol wfx_common_0 | wf_1h | wf_dual_flip | wf_dual
 #define wfx_rifle  wfx_common_0 | wf_2000
 
-#define wfx_bond_1h wf_0004 | wfx_pistol | wfx_C000 | wf_alonzo
-#define wfx_bond_2h wf_0004 | wfx_handgun | wf_dual_flip | wf_dual | wfx_8400
+#define wfx_retro_1h wf_0004 | wfx_pistol | wfx_C000 | wf_alonzo
+#define wfx_retro_2h wf_0004 | wfx_handgun | wf_dual_flip | wf_dual | wfx_8400
 
 #define wfx_throwable wf_throwable | wf_2000 | wf_hands
 
@@ -358,8 +358,8 @@ struct item_t {
 #define gvx_xbow     gvc_xbow,     mpv_xbow
 #define gvx_tranq    gvc_tranq,    mpv_tranq
 #define gvx_sniper   gvc_sniper,   mpv_sniper
-#define gvx_bond_1h  gvc_classic,  mpv_classic
-#define gvx_bond_2h  0,            mpv_classic
+#define gvx_retro_1h gvc_classic,  mpv_classic
+#define gvx_retro_2h 0,            mpv_classic
 #define gvx_knife    gvc_knife,    0
 
 item_t item_hammer    = { 0,                  0,                 0, 0, 0, 0,    0, 0,          gax_default,   rig_none,     0, 0,         wfx_hammer    };
@@ -399,14 +399,14 @@ item_t item_xbow      = { file_gun_xbow,      file_lod_xbow,     gacx_xbow,     
 item_t item_tranq     = { file_gun_tranq,     file_lod_tranq,    gacx_tranq,    gfx_tranq,     gax_tranq,     rig_tranq,    gvx_tranq,    wfx_tranq     };
 item_t item_psycho    = { file_gun_tranq,     file_lod_tranq,    gacx_psycho,   gfx_psycho,    gax_psycho,    rig_psycho,   gvx_tranq,    wfx_tranq     };
 item_t item_sniper    = { file_gun_sniper,    file_lod_sniper,   gacx_sniper,   gfx_sniper,    gax_sniper,    rig_sniper,   gvx_sniper,   wfx_sniper    };
-item_t item_ppk       = { file_gun_ppk,       0,                 gacx_ppk,      gfx_ppk,       gax_ppk,       rig_ppk,      gvx_bond_1h,  wfx_bond_1h   };
-item_t item_tt33      = { file_gun_tt33,      0,                 gacx_tt33,     gfx_tt33,      gax_tt33,      rig_tt33,     gvx_bond_1h,  wfx_bond_1h   };
-item_t item_vz61      = { file_gun_vz61,      0,                 0, 0, 0, 0,    gfx_vz61,      gax_vz61,      rig_vz61,     gvx_bond_2h,  wfx_bond_2h   };
-item_t item_akms      = { file_gun_akms,      0,                 0, 0, 0, 0,    gfx_akms,      gax_akms,      rig_akms,     gvx_bond_2h,  wfx_bond_2h   };
-item_t item_uzi       = { file_gun_uzi,       0,                 0, 0, 0, 0,    gfx_uzi,       gax_uzi,       rig_uzi,      gvx_bond_2h,  wfx_bond_2h   };
-item_t item_mp5k      = { file_gun_mp5k,      0,                 0, 0, 0, 0,    gfx_mp5k,      gax_mp5k,      rig_mp5k,     gvx_bond_2h,  wfx_bond_2h   };
-item_t item_m16       = { file_gun_m16,       0,                 0, 0, 0, 0,    gfx_m16,       gax_m16,       rig_m16,      gvx_bond_2h,  wfx_bond_2h   };
-item_t item_p90       = { file_gun_p90,       0,                 0, 0, 0, 0,    gfx_p90,       gax_p90,       rig_p90,      gvx_bond_2h,  wfx_bond_2h   };
+item_t item_ppk       = { file_gun_ppk,       0,                 gacx_ppk,      gfx_ppk,       gax_ppk,       rig_ppk,      gvx_retro_1h, wfx_retro_1h  };
+item_t item_tt33      = { file_gun_tt33,      0,                 gacx_tt33,     gfx_tt33,      gax_tt33,      rig_tt33,     gvx_retro_1h, wfx_retro_1h  };
+item_t item_vz61      = { file_gun_vz61,      0,                 0, 0, 0, 0,    gfx_vz61,      gax_vz61,      rig_vz61,     gvx_retro_2h, wfx_retro_2h  };
+item_t item_akms      = { file_gun_akms,      0,                 0, 0, 0, 0,    gfx_akms,      gax_akms,      rig_akms,     gvx_retro_2h, wfx_retro_2h  };
+item_t item_uzi       = { file_gun_uzi,       0,                 0, 0, 0, 0,    gfx_uzi,       gax_uzi,       rig_uzi,      gvx_retro_2h, wfx_retro_2h  };
+item_t item_mp5k      = { file_gun_mp5k,      0,                 0, 0, 0, 0,    gfx_mp5k,      gax_mp5k,      rig_mp5k,     gvx_retro_2h, wfx_retro_2h  };
+item_t item_m16       = { file_gun_m16,       0,                 0, 0, 0, 0,    gfx_m16,       gax_m16,       rig_m16,      gvx_retro_2h, wfx_retro_2h  };
+item_t item_p90       = { file_gun_p90,       0,                 0, 0, 0, 0,    gfx_p90,       gax_p90,       rig_p90,      gvx_retro_2h, wfx_retro_2h  };
 item_t item_flag      = { file_lod_eagle,     file_lod_eagle,    0, 0, 0, 0,    gfx_flag,      0, 0, 0,       rig_none,     0, 0,         wfx_flag      };
 item_t item_chopper   = { 0,                  0,                 0, 0, 0, 0,    gfx_chopper,   gax_chopper,   rig_chopper,  0, 0,         wfx_watch     };
 item_t item_watch     = { 0,                  0,                 0, 0, 0, 0,    gfx_watch,     gax_watch,     rig_watch,    0, 0,         wfx_watch     };
@@ -471,7 +471,7 @@ item_t item_tester    = { file_gun_tester,    0,                 0, 0, 0, 0,    
 // field( auto9,     gun_auto9,     auto9,    auto9,     auto9,     auto9,     auto9,    auto9,    auto9      );
 // field( magnum,    gun_magnum,    magnum,   magnum,    magnum,    magnum,    magnum,   magnum,   magnum     );
 // field( gmagnum,   gun_gmagnum,   gmagnum,  gmagnum,   gmagnum,   magnum,    magnum,   magnum,   magnum     );
-// field( zpistol,   gun_zpistol,   zpistol,  zpistol,   zpistol,   zpistol,   zpistol,  zpistol,  bond_1h    );
+// field( zpistol,   gun_zpistol,   zpistol,  zpistol,   zpistol,   zpistol,   zpistol,  zpistol,  retro_1h   );
 // field( zblaster,  gun_zblaster,  zblaster, zblaster,  zblaster,  zblaster,  zblaster, zblaster, smg        );
 // field( tmp,       gun_tmp,       tmp,      tmp,       tmp,       tmp,       tmp,      tmp,      tmp        );
 // field( xsmg,      gun_xsmg,      xsmg,     xsmg,      xsmg,      xsmg,      xsmg,     xsmg,     smg        );
@@ -498,14 +498,14 @@ item_t item_tester    = { file_gun_tester,    0,                 0, 0, 0, 0,    
 // field( tranq,     gun_tranq,     tranq,    tranq,     tranq,     tranq,     tranq,    tranq,    tranq      );
 // field( psycho,    gun_tranq,     tranq,    psycho,    psycho,    psycho,    psycho,   tranq,    tranq      );
 // field( sniper,    gun_sniper,    sniper,   sniper,    sniper,    sniper,    sniper,   sniper,   sniper     );
-// field( ppk,       gun_ppk,       0,        ppk,       ppk,       ppk,       ppk,      bond_1h,  bond_1h    );
-// field( tt33,      gun_tt33,      0,        tt33,      tt33,      tt33,      tt33,     bond_1h,  bond_1h    );
-// field( vz61,      gun_vz61,      0,        0,         vz61,      vz61,      vz61,     bond_2h,  bond_2h    );
-// field( akms,      gun_akms,      0,        0,         akms,      akms,      akms,     bond_2h,  bond_2h    );
-// field( uzi,       gun_uzi,       0,        0,         uzi,       uzi,       uzi,      bond_2h,  bond_2h    );
-// field( mp5k,      gun_mp5k,      0,        0,         mp5k,      mp5k,      mp5k,     bond_2h,  bond_2h    );
-// field( m16,       gun_m16,       0,        0,         m16,       m16,       m16,      bond_2h,  bond_2h    );
-// field( p90,       gun_p90,       0,        0,         p90,       p90,       p90,      bond_2h,  bond_2h    );
+// field( ppk,       gun_ppk,       0,        ppk,       ppk,       ppk,       ppk,      p1_1h,    retro_1h   );
+// field( tt33,      gun_tt33,      0,        tt33,      tt33,      tt33,      tt33,     p1_1h,    retro_1h   );
+// field( vz61,      gun_vz61,      0,        0,         vz61,      vz61,      vz61,     p1_2h,    retro_2h   );
+// field( akms,      gun_akms,      0,        0,         akms,      akms,      akms,     p1_2h,    retro_2h   );
+// field( uzi,       gun_uzi,       0,        0,         uzi,       uzi,       uzi,      p1_2h,    retro_2h   );
+// field( mp5k,      gun_mp5k,      0,        0,         mp5k,      mp5k,      mp5k,     p1_2h,    retro_2h   );
+// field( m16,       gun_m16,       0,        0,         m16,       m16,       m16,      p1_2h,    retro_2h   );
+// field( p90,       gun_p90,       0,        0,         p90,       p90,       p90,      p1_2h,    retro_2h   );
 // field( flag,      lod_eagle,     eagle,    0,         flag,      0,         none,     0,        flag       );
 // field( chopper,   0,             0,        0,         chopper,   chopper,   chopper,  0,        watch      );
 // field( watch,     0,             0,        0,         watch,     watch,     watch,    0,        watch      );

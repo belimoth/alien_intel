@@ -33,7 +33,7 @@ struct extplayerconfig_t {
 	float    radialmenuspeed;
 	float    crosshairsway;
 	int      extcontrols;
-	uint32_t crosshaircolour;
+	uint32_t crosshaircolor;
 	uint32_t crosshairsize;
 	float    crosshairedgeboundary;
 	int      crosshairhealth;
@@ -59,7 +59,7 @@ extplayerconfig_t g_player_ext_cfg[player_count_max] = {
 	player_ext_cfg_default,
 };
 
-#define PLAYER_EXTCFG() g_player_ext_cfg[g.stage.var.play.px_score->mpindex & 3]
+#define PLAYER_EXTCFG() g_player_ext_cfg[g.stage.var.play.px_score->mp_index & 3]
 #define PLAYER_DEFAULT_FOV (PLAYER_EXTCFG().fovy)
 
 #ifdef PLATFORM_N64

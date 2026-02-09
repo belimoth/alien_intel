@@ -20,10 +20,6 @@ struct geocyl {
 
 };
 
-struct ai1_bot {
-
-};
-
 // array
 
 #define array_count( array ) ( sizeof(array) / sizeof(array[0]) )

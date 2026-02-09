@@ -6,7 +6,7 @@
 
 // model part vis
 
-struct ai1_mpv {
+struct mpv_t {
 	uint8_t part;
 	uint8_t vis;
 };
@@ -25,7 +25,7 @@ struct ai1_mpv {
 
 // gun vis cmd
 
-struct ai1_gvc {
+struct gvc_t {
 	uint8_t  type;
 	uint16_t param;
 	uint8_t  op;
@@ -35,76 +35,76 @@ struct ai1_gvc {
 
 // eagle
 
-ai1_mpv mpv_eagle[] = {
+mpv_t mpv_eagle[] = {
 	{ part_gun_muzzleflash1, false },
 	{ part_eagle_mag_0,      false },
 	{ part_eagle_mag_1,      false },
 	{ part_eagle_scope,      false },
-	{ part_eagle_silencer,   false },
-	{ part_eagle_002e,       false },
-	{ part_eagle_002f,       false },
+	{ part_eagle_s,   false },
+	{ part_eagle_002E,       false },
+	{ part_eagle_002F,       false },
 	{ 255 },
 };
 
-ai1_mpv mpv_eagle_h[] = {
+mpv_t mpv_eagle_h[] = {
 	{ part_gun_muzzleflash1, false },
 	{ part_eagle_mag_0,      false },
 	{ part_eagle_mag_1,      false },
-	{ part_eagle_silencer,   false },
-	{ part_eagle_002f,       false },
+	{ part_eagle_s,   false },
+	{ part_eagle_002F,       false },
 	{ 255 },
 };
 
-ai1_mpv mpv_eagle_s[] = {
+mpv_t mpv_eagle_s[] = {
 	{ part_gun_muzzleflash1, false },
 	{ part_eagle_mag_0,      false },
 	{ part_eagle_mag_1,      false },
 	{ part_eagle_scope,      false },
-	{ part_eagle_002e,       false },
+	{ part_eagle_002E,       false },
 	{ 255 },
 };
 
-ai1_gvc gvc_eagle[] = {
+gvc_t gvc_eagle[] = {
 	hide( part_eagle_mag_0 )
 	hide( part_eagle_mag_1 )
 	hide( part_eagle_scope )
-	hide( part_eagle_silencer )
-	hide( part_eagle_002e )
-	hide( part_eagle_002f )
+	hide( part_eagle_s )
+	hide( part_eagle_002E )
+	hide( part_eagle_002F )
 	hide( part_hand_left )
 	end
 };
 
-ai1_gvc gvc_eagle_h[] = {
+gvc_t gvc_eagle_h[] = {
 	hide( part_eagle_mag_0 )
 	hide( part_eagle_mag_1 )
-	hide( part_eagle_silencer )
-	hide( part_eagle_002e )
-	hide( part_eagle_002f )
+	hide( part_eagle_s )
+	hide( part_eagle_002E )
+	hide( part_eagle_002F )
 	hide( part_hand_left )
 	end
 };
 
-ai1_gvc gvc_eagle_s[] = {
+gvc_t gvc_eagle_s[] = {
 	hide( part_eagle_mag_0 )
 	hide( part_eagle_mag_1 )
 	hide( part_eagle_scope )
-	hide( part_eagle_002e )
-	hide( part_eagle_002f )
+	hide( part_eagle_002E )
+	hide( part_eagle_002F )
 	hide( part_hand_left )
 	end
 };
 
 // auto9
 
-ai1_mpv mpv_auto9[] = {
+mpv_t mpv_auto9[] = {
 	{ part_gun_muzzleflash1, false },
 	{ part_pistol_mag_0, false },
 	{ part_pistol_mag_1, false },
 	{ 255 },
 };
 
-ai1_gvc gvc_auto9[] = {
+gvc_t gvc_auto9[] = {
 	hide( part_hand_left )
 	hide( part_pistol_mag_1 )
 	hide( part_pistol_mag_0 )
@@ -113,7 +113,7 @@ ai1_gvc gvc_auto9[] = {
 
 // magnum
 
-ai1_mpv mpv_magnum[] = {
+mpv_t mpv_magnum[] = {
 	{ part_gun_muzzleflash1, false },
 	{ part_magnum_cart1,     false },
 	{ part_magnum_cart2,     false },
@@ -124,7 +124,7 @@ ai1_mpv mpv_magnum[] = {
 	{ 255 },
 };
 
-ai1_gvc gvc_magnum[] = {
+gvc_t gvc_magnum[] = {
 	hide( part_magnum_cart1 )
 	hide( part_magnum_cart2 )
 	hide( part_magnum_cart3 )
@@ -137,12 +137,12 @@ ai1_gvc gvc_magnum[] = {
 
 // zpistol
 
-ai1_mpv mpv_zpistol[] = {
+mpv_t mpv_zpistol[] = {
 	{ part_zpistol_orb, false },
 	{ 255 },
 };
 
-ai1_gvc gvc_zpistol[] = {
+gvc_t gvc_zpistol[] = {
 	hide( part_zpistol_orb )
 	hide( part_hand_left )
 	end
@@ -150,13 +150,13 @@ ai1_gvc gvc_zpistol[] = {
 
 // zblaster
 
-ai1_mpv mpv_zblaster[] = {
+mpv_t mpv_zblaster[] = {
 	{ part_zblaster_mag_1, false },
 	{ part_gun_muzzleflash1, false },
 	{ 255 },
 };
 
-ai1_gvc gvc_zblaster[] = {
+gvc_t gvc_zblaster[] = {
 	hide( part_hand_left )
 	hide( part_zblaster_mag_1 )
 	end
@@ -164,13 +164,13 @@ ai1_gvc gvc_zblaster[] = {
 
 // tmp
 
-ai1_mpv mpv_tmp[] = {
+mpv_t mpv_tmp[] = {
 	{ part_gun_muzzleflash1, false },
 	{ part_tmp_mag_1, false },
 	{ 255 },
 };
 
-ai1_gvc gvc_tmp[] = {
+gvc_t gvc_tmp[] = {
 	hide( part_hand_left )
 	hide( part_tmp_mag_1 )
 	hide( part_gun_cartflapopen )
@@ -179,13 +179,13 @@ ai1_gvc gvc_tmp[] = {
 
 // xsmg
 
-ai1_mpv mpv_xsmg[] = {
+mpv_t mpv_xsmg[] = {
 	{ part_gun_muzzleflash1, false },
 	{ part_xsmg_magazine, false },
 	{ 255 },
 };
 
-ai1_gvc gvc_xsmg[] = {
+gvc_t gvc_xsmg[] = {
 	hide( part_hand_left )
 	hide( part_xsmg_magazine )
 	end
@@ -193,37 +193,37 @@ ai1_gvc gvc_xsmg[] = {
 
 // xp90
 
-ai1_mpv mpv_xp90[] = {
+mpv_t mpv_xp90[] = {
 	{ part_gun_muzzleflash1, false },
 	{ part_xp90_mag_1, false },
 	{ 255 },
 };
 
-ai1_gvc gvc_xp90[] = {
+gvc_t gvc_xp90[] = {
 	hide( part_xp90_mag_1 )
 	end
 };
 
 // zsmg
 
-ai1_mpv mpv_zsmg[] = {
+mpv_t mpv_zsmg[] = {
 	{ part_zsmg_orb, false },
 	{ 255 },
 };
 
-ai1_gvc gvc_zsmg[] = {
+gvc_t gvc_zsmg[] = {
 	hide( part_zsmg_orb )
 	end
 };
 
 // g36
 
-ai1_gvc gvc_g36[] = {
+gvc_t gvc_g36[] = {
 	hide( part_g36_mag_0 )
 	end
 };
 
-ai1_mpv mpv_g36[] = {
+mpv_t mpv_g36[] = {
 	{ part_g36_mag_0,      false },
 	{ part_gun_muzzleflash1, false },
 	{ 255 },
@@ -231,13 +231,13 @@ ai1_mpv mpv_g36[] = {
 
 // xg36
 
-ai1_gvc gvc_xg36[] = {
+gvc_t gvc_xg36[] = {
 	hide( part_xg36_mag_0 )
 	hide( part_xg36_mag_1 )
 	end
 };
 
-ai1_mpv mpv_xg36[] = {
+mpv_t mpv_xg36[] = {
 	{ part_xg36_mag_0,     false },
 	{ part_xg36_mag_1,     false },
 	{ part_gun_muzzleflash1, false },
@@ -246,12 +246,12 @@ ai1_mpv mpv_xg36[] = {
 
 // famas
 
-ai1_gvc gvc_famas[] = {
+gvc_t gvc_famas[] = {
 	hide( part_famas_mag_1 )
 	end
 };
 
-ai1_mpv mpv_famas[] = {
+mpv_t mpv_famas[] = {
 	{ part_famas_mag_1,       false },
 	{ part_gun_muzzleflash1, false },
 	{ 255 },
@@ -259,12 +259,12 @@ ai1_mpv mpv_famas[] = {
 
 // mp7
 
-ai1_gvc gvc_mp7[] = {
+gvc_t gvc_mp7[] = {
 	hide( part_mp7_mag_1 )
 	end
 };
 
-ai1_mpv mpv_mp7[] = {
+mpv_t mpv_mp7[] = {
 	{ part_mp7_mag_1, false },
 	{ part_gun_muzzleflash1, false },
 	{ 255 },
@@ -272,13 +272,13 @@ ai1_mpv mpv_mp7[] = {
 
 // laptop
 
-ai1_gvc gvc_laptop[] = {
+gvc_t gvc_laptop[] = {
 	hide( part_laptop_mag_1 )
 	hide( part_laptop_mag_0 )
 	end
 };
 
-ai1_mpv mpv_laptop[] = {
+mpv_t mpv_laptop[] = {
 	{ part_gun_muzzleflash1, false },
 	{ part_laptop_mag_0, false },
 	{ part_laptop_mag_1, false },
@@ -287,12 +287,12 @@ ai1_mpv mpv_laptop[] = {
 
 // shotgun
 
-ai1_gvc gvc_shotgun[] = {
+gvc_t gvc_shotgun[] = {
 	hide( part_shotgun_cart )
 	end
 };
 
-ai1_mpv mpv_shotgun[] = {
+mpv_t mpv_shotgun[] = {
 	{ part_shotgun_cart, false },
 	{ part_gun_muzzleflash1, false },
 	{ 255 },
@@ -300,7 +300,7 @@ ai1_mpv mpv_shotgun[] = {
 
 // zlmg
 
-ai1_mpv mpv_zlmg[] = {
+mpv_t mpv_zlmg[] = {
 	{ part_gun_muzzleflash1, false },
 	{ part_gun_muzzleflash2, false },
 	{ part_gun_muzzleflash3, false },
@@ -308,38 +308,38 @@ ai1_mpv mpv_zlmg[] = {
 	{ 255 },
 };
 
-ai1_gvc gvc_zlmg[] = {
+gvc_t gvc_zlmg[] = {
 	hide( part_zlmg_mag_1 )
 	end
 };
 
 // rocket
 
-ai1_mpv mpv_rocket[] = {
+mpv_t mpv_rocket[] = {
 	{ part_rocket_rocket, false },
 	{ 255 },
 };
 
-ai1_gvc gvc_rocket[] = {
+gvc_t gvc_rocket[] = {
 	hide( part_rocket_rocket )
 	end
 };
 
 // thumper
 
-ai1_mpv mpv_thumper[] = {
+mpv_t mpv_thumper[] = {
 	{ part_thumper_mag_0, false },
 	{ 255 },
 };
 
-ai1_gvc gvc_thumper[] = {
+gvc_t gvc_thumper[] = {
 	hide( part_thumper_mag_0 )
 	end
 };
 
 // rmine
 
-ai1_gvc gvc_rmine[] = {
+gvc_t gvc_rmine[] = {
 	check_left ( gvo_set_vis, part_hand_left       )
 	check_left ( gvo_set_vis, part_rmine_detonator )
 	check_right( gvo_set_vis, part_hand_right      )
@@ -347,40 +347,40 @@ ai1_gvc gvc_rmine[] = {
 	end
 };
 
-ai1_mpv mpv_rmine[] = {
+mpv_t mpv_rmine[] = {
 	{ part_rmine_detonator, false },
 	{ 255 },
 };
 
 // grenade
 
-ai1_gvc gvc_grenade[] = {
+gvc_t gvc_grenade[] = {
 	hide( part_hand_left )
 	end
 };
 
 // zsniper
 
-ai1_gvc gvc_zsniper[] = {
+gvc_t gvc_zsniper[] = {
 	hide( 0x0028 )
 	end
 };
 
-ai1_mpv mpv_zsniper[] = {
+mpv_t mpv_zsniper[] = {
 	{ part_zsniper_orb, false },
 	{ 255 },
 };
 
 // xbow
 
-ai1_mpv mpv_xbow[] = {
+mpv_t mpv_xbow[] = {
 	{ part_xbow_0028,   false },
 	{ part_xbow_bolt,   false },
 	{ part_xbow_handle, false },
 	{ 255 },
 };
 
-ai1_gvc gvc_xbow[] = {
+gvc_t gvc_xbow[] = {
 	hide( part_hand_left )
 	hide( 0x0029 )
 	end
@@ -388,13 +388,13 @@ ai1_gvc gvc_xbow[] = {
 
 // tranq
 
-ai1_gvc gvc_tranq[] = {
+gvc_t gvc_tranq[] = {
 	hide( 0x0028 )
 	hide( part_hand_left )
 	end
 };
 
-ai1_mpv mpv_tranq[] = {
+mpv_t mpv_tranq[] = {
 	{ part_tranq_mag_0, false },
 	{ part_tranq_mag_1, false },
 	{ part_tranq_mag_2, false },
@@ -403,31 +403,31 @@ ai1_mpv mpv_tranq[] = {
 
 // sinper
 
-ai1_gvc gvc_sniper[] = {
+gvc_t gvc_sniper[] = {
 	hide( 0x0029 )
 	end
 };
 
-ai1_mpv mpv_sniper[] = {
+mpv_t mpv_sniper[] = {
 	{ part_sniper_mag_1, false },
 	{ 255 },
 };
 
 // classic
 
-ai1_mpv mpv_classic[] = {
+mpv_t mpv_classic[] = {
 	{ part_gun_muzzleflash1, false },
 	{ 255 },
 };
 
-ai1_gvc gvc_classic[] = {
+gvc_t gvc_classic[] = {
 	hide( part_hand_left )
 	end
 };
 
 // knife
 
-ai1_gvc gvc_knife[] = {
+gvc_t gvc_knife[] = {
 	hide( part_hand_left )
 	end
 };
